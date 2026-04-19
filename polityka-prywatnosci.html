@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polityka prywatności — Dacjan Skuza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a5c3a; --green-light: #e8f5ee; --green-mid: #c5e3d3; --green-dark: #0f3d26;
+    --text: #1a1a18; --text-mid: #4a4a46; --text-muted: #888880;
+    --border: rgba(26,26,24,0.1); --border-mid: rgba(26,26,24,0.18);
+    --bg: #fafaf8; --bg-card: #ffffff; --bg-surface: #f4f4f0;
+    --serif: 'DM Serif Display', Georgia, serif; --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 10px; --radius-sm: 6px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--green); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,248,0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .nav-logo { font-family: var(--serif); font-size: 18px; color: var(--text); }
+  .nav-logo span { color: var(--green); }
+  .nav-back { font-size: 13px; color: var(--text-mid); display: flex; align-items: center; gap: 6px; padding: 6px 14px; border: 1px solid var(--border-mid); border-radius: var(--radius-sm); transition: border-color 0.15s, color 0.15s; }
+  .nav-back:hover { border-color: var(--green); color: var(--green); text-decoration: none; }
+
+  .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  .page-hero { padding: 56px 0 40px; border-bottom: 1px solid var(--border); }
+  .page-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--green); }
+  .page-hero h1 { font-family: var(--serif); font-size: clamp(24px, 4vw, 36px); font-weight: 400; line-height: 1.2; margin-bottom: 12px; }
+  .page-hero .meta { font-size: 13px; color: var(--text-muted); font-weight: 300; }
+
+  .doc-body { padding: 48px 0 64px; }
+
+  .doc-section { margin-bottom: 40px; }
+  .doc-section h2 { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--text); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+  .doc-section h3 { font-size: 14px; font-weight: 500; color: var(--text); margin: 18px 0 8px; }
+  .doc-section p { font-size: 14px; font-weight: 300; color: var(--text-mid); line-height: 1.8; margin-bottom: 12px; }
+  .doc-section p:last-child { margin-bottom: 0; }
+  .doc-section ul { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-direction: column; gap: 6px; }
+  .doc-section ul li { font-size: 14px; font-weight: 300; color: var(--text-mid); line-height: 1.7; display: flex; gap: 10px; }
+  .doc-section ul li::before { content: "—"; color: var(--text-muted); flex-shrink: 0; }
+
+  .info-box { background: var(--green-light); border: 1px solid var(--green-mid); border-left: 3px solid var(--green); border-radius: var(--radius-sm); padding: 16px 20px; margin-bottom: 16px; }
+  .info-box p { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin: 0; font-weight: 300; }
+  .info-box strong { font-weight: 500; color: var(--text); }
+
+  .contact-block { background: var(--bg-surface); border-radius: var(--radius); padding: 20px 24px; margin-top: 12px; }
+  .contact-block p { font-size: 14px; color: var(--text-mid); font-weight: 300; line-height: 1.8; margin: 0; }
+
+  footer { padding: 28px 0; border-top: 1px solid var(--border); }
+  .footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-left { font-size: 12px; color: var(--text-muted); }
+  .footer-logo { font-family: var(--serif); color: var(--text); }
+  .footer-links { display: flex; gap: 20px; list-style: none; }
+  .footer-links a { font-size: 12px; color: var(--text-muted); transition: color 0.15s; }
+  .footer-links a:hover { color: var(--green); }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 16px; }
+    .page-hero { padding: 40px 0 32px; }
+    .doc-body { padding: 36px 0 48px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Dacjan <span>Skuza</span></a>
+    <a href="index.html" class="nav-back">← Strona główna</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="page-eyebrow">Dokumenty prawne</p>
+    <h1>Polityka prywatności</h1>
+    <p class="meta">Obowiązuje od: 1 maja 2026 &nbsp;·&nbsp; Ostatnia aktualizacja: 1 maja 2026</p>
+  </div>
+</div>
+
+<div class="doc-body">
+  <div class="container">
+
+    <div class="info-box">
+      <p><strong>Skrót dla niecierpliwych:</strong> Twoje dane osobowe (imię, email, telefon, informacje o nieruchomości) zbieramy wyłącznie w celu odpowiedzi na Twoje zapytanie i realizacji zlecenia. Nie sprzedajemy ich, nie przekazujemy reklamodawcom, nie wysyłamy spamu. Masz pełne prawo do wglądu, poprawy i usunięcia swoich danych.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>1. Administrator danych osobowych</h2>
+      <p>Administratorem Twoich danych osobowych jest:</p>
+      <div class="contact-block">
+        <p>
+          <strong>Dacjan Skuza</strong><br>
+          Kraków, Polska<br>
+          E-mail: <a href="mailto:dacjanskuza.analizy@gmail.com">dacjanskuza.analizy@gmail.com</a><br>
+          Telefon: <a href="tel:+48667938379">+48 667 938 379</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <h2>2. Jakie dane zbieramy i w jakim celu</h2>
+
+      <h3>Formularz kontaktowy na stronie</h3>
+      <ul>
+        <li>Imię i nazwisko — w celu identyfikacji osoby składającej zapytanie</li>
+        <li>Adres e-mail — w celu przesłania odpowiedzi na zapytanie</li>
+        <li>Numer telefonu (opcjonalnie) — w celu kontaktu telefonicznego jeśli wyrazisz taką chęć</li>
+        <li>Opis działki lub pytanie — w celu przygotowania wyceny i odpowiedzi merytorycznej</li>
+        <li>Wybrany pakiet — w celu przygotowania oferty</li>
+      </ul>
+      <p>Podstawa prawna: art. 6 ust. 1 lit. b RODO (podjęcie działań na żądanie osoby przed zawarciem umowy) oraz art. 6 ust. 1 lit. a RODO (zgoda — w przypadku danych opcjonalnych).</p>
+
+      <h3>Realizacja zlecenia</h3>
+      <ul>
+        <li>Dane identyfikacyjne klienta — w celu wystawienia rachunku lub faktury</li>
+        <li>Dane nieruchomości (numer KW, adres, numery działek) — w celu wykonania analizy</li>
+        <li>Korespondencja e-mailowa — w celu dokumentowania ustaleń</li>
+      </ul>
+      <p>Podstawa prawna: art. 6 ust. 1 lit. b RODO (wykonanie umowy).</p>
+
+      <h3>Dane nie są zbierane automatycznie</h3>
+      <p>Strona nie używa plików cookies analitycznych, pikseli śledzących ani narzędzi remarketingowych. Nie korzystamy z Google Analytics ani żadnych zewnętrznych narzędzi śledzenia zachowania użytkowników.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>3. Jak długo przechowujemy dane</h2>
+      <ul>
+        <li>Dane z formularza kontaktowego bez dalszej współpracy — do 6 miesięcy od ostatniego kontaktu</li>
+        <li>Dane związane z realizacją zlecenia — przez 5 lat od zakończenia zlecenia (wymogi podatkowe i rachunkowe)</li>
+        <li>Korespondencja e-mailowa — przez okres trwania zlecenia i 2 lata po jego zakończeniu</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>4. Komu przekazujemy dane</h2>
+      <p>Twoje dane osobowe nie są sprzedawane, wynajmowane ani przekazywane podmiotom trzecim w celach marketingowych.</p>
+      <p>Dane mogą być przekazywane wyłącznie:</p>
+      <ul>
+        <li>Formspree Inc. — operator formularza kontaktowego na stronie (dane są przekazywane w celu dostarczenia wiadomości; polityka prywatności Formspree dostępna na formspree.io/legal/privacy-policy)</li>
+        <li>Organom państwowym — wyłącznie gdy wymagają tego przepisy prawa</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2>5. Twoje prawa</h2>
+      <p>Na podstawie RODO przysługują Ci następujące prawa:</p>
+      <ul>
+        <li>Prawo dostępu do swoich danych — możesz poprosić o informację jakie dane przechowujemy</li>
+        <li>Prawo do sprostowania — możesz poprosić o poprawienie nieprawidłowych danych</li>
+        <li>Prawo do usunięcia danych ("prawo do bycia zapomnianym")</li>
+        <li>Prawo do ograniczenia przetwarzania</li>
+        <li>Prawo do przenoszenia danych</li>
+        <li>Prawo do wniesienia sprzeciwu wobec przetwarzania</li>
+        <li>Prawo do cofnięcia zgody w dowolnym momencie (bez wpływu na zgodność z prawem przetwarzania przed cofnięciem)</li>
+      </ul>
+      <p>Aby skorzystać z któregokolwiek z powyższych praw, skontaktuj się mailowo: <a href="mailto:dacjanskuza.analizy@gmail.com">dacjanskuza.analizy@gmail.com</a>. Odpiszę w ciągu 30 dni.</p>
+      <p>Przysługuje Ci również prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (uodo.gov.pl) jeśli uznasz, że przetwarzanie Twoich danych narusza przepisy RODO.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>6. Bezpieczeństwo danych</h2>
+      <p>Stosujemy odpowiednie środki techniczne i organizacyjne w celu ochrony Twoich danych przed nieuprawnionym dostępem, utratą lub ujawnieniem. Komunikacja odbywa się przez szyfrowane połączenia (HTTPS). Dostęp do danych ma wyłącznie administrator.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>7. Zmiany polityki prywatności</h2>
+      <p>Polityka prywatności może być aktualizowana. O istotnych zmianach poinformujemy przez zmianę daty "ostatniej aktualizacji" na górze tego dokumentu. Zachęcamy do okresowego sprawdzania treści polityki.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2>8. Kontakt w sprawach danych osobowych</h2>
+      <div class="contact-block">
+        <p>
+          W sprawach dotyczących ochrony danych osobowych skontaktuj się:<br><br>
+          E-mail: <a href="mailto:dacjanskuza.analizy@gmail.com">dacjanskuza.analizy@gmail.com</a><br>
+          Telefon: <a href="tel:+48667938379">+48 667 938 379</a><br>
+          Dacjan Skuza, Kraków, Polska
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left"><span class="footer-logo">Dacjan Skuza</span> &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp; Kraków</div>
+    <ul class="footer-links">
+      <li><a href="rodo.html">RODO</a></li>
+      <li><a href="oferta.html">Pełna oferta</a></li>
+      <li><a href="index.html">Strona główna</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
