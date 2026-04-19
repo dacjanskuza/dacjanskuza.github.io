@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Profesjonalna analiza due diligence gruntów i nieruchomości. Analiza katastralna, planistyczna i środowiskowa przed zakupem. Dacjan Skuza — inżynier geodezji, Kraków.">
+<title>Dacjan Skuza — Analiza due diligence gruntów</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a5c3a;
+    --green-light: #e8f5ee;
+    --green-mid: #c5e3d3;
+    --green-dark: #0f3d26;
+    --text: #1a1a18;
+    --text-mid: #4a4a46;
+    --text-muted: #888880;
+    --border: rgba(26,26,24,0.1);
+    --border-mid: rgba(26,26,24,0.18);
+    --bg: #fafaf8;
+    --bg-card: #ffffff;
+    --bg-surface: #f4f4f0;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--text);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .nav-logo span { color: var(--green); }
+
+  .nav-links {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-mid);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .nav-links a:hover {
+    background: var(--bg-surface);
+    color: var(--text);
+  }
+
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 18px;
+    background: var(--green);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+
+  .nav-cta:hover { background: var(--green-dark); }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px 20px;
+    gap: 2px;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-size: 15px;
+    color: var(--text-mid);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-menu a:last-child { border-bottom: none; }
+
+  .mobile-menu .mob-cta {
+    margin-top: 8px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 20px;
+    background: var(--green);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    text-align: center;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 72px 0 64px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 20px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--green);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text);
+    max-width: 620px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--green);
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--text-mid);
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+
+  .tag {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 5px 12px;
+    border: 1px solid var(--border-mid);
+    border-radius: 999px;
+    color: var(--text-mid);
+    background: var(--bg-card);
+  }
+
+  .tag.accent {
+    border-color: var(--green);
+    color: var(--green);
+    background: var(--green-light);
+  }
+
+  .tag-new {
+    font-size: 9px;
+    font-weight: 500;
+    padding: 2px 6px;
+    background: var(--green);
+    color: #fff;
+    border-radius: 999px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 13px 28px;
+    background: var(--green);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--green-dark); }
+
+  .btn-secondary {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 400;
+    padding: 13px 28px;
+    background: transparent;
+    color: var(--text-mid);
+    border: 1px solid var(--border-mid);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .trust-item {
+    padding: 20px 24px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .trust-item:last-child { border-right: none; }
+
+  .trust-num {
+    display: block;
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--green);
+    margin-bottom: 2px;
+  }
+
+  .trust-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header { margin-bottom: 36px; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+
+  .section-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  .section-header p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-mid);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  /* ── OFFER GRID ── */
+  .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .offer-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: border-color 0.15s;
+  }
+
+  .offer-card:hover { border-color: var(--border-mid); }
+
+  .offer-card.featured {
+    border-color: var(--green);
+    border-width: 1.5px;
+  }
+
+  .offer-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .badge-gray { background: var(--bg-surface); color: var(--text-muted); }
+  .badge-green { background: var(--green-light); color: var(--green); }
+  .badge-amber { background: #faeeda; color: #633806; }
+  .badge-blue { background: #e6f1fb; color: #0c447c; }
+
+  .offer-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .offer-tagline {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .offer-price {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .offer-price-note {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  .offer-time {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--text-mid);
+    background: var(--bg-surface);
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .offer-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 12px 0;
+  }
+
+  .offer-scope {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .offer-scope li {
+    font-size: 12px;
+    color: var(--text-mid);
+    display: flex;
+    gap: 8px;
+    line-height: 1.5;
+  }
+
+  .offer-scope li::before {
+    content: "—";
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  .offer-scope li.plus::before {
+    content: "+";
+    color: var(--green);
+    flex-shrink: 0;
+  }
+
+  .offer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--green);
+    margin-top: 14px;
+    cursor: pointer;
+    transition: gap 0.15s;
+  }
+
+  .offer-link:hover { gap: 10px; }
+
+  /* ── PORTFOLIO ── */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .port-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+
+  .port-card:hover { border-color: var(--border-mid); }
+
+  .port-header {
+    background: var(--green-light);
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--green-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+  }
+
+  .port-header-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--green);
+    text-align: center;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.5;
+  }
+
+  .port-body { padding: 18px 20px; }
+
+  .port-type {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+
+  .port-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  .port-desc {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 14px;
+  }
+
+  .port-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .port-tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    background: var(--bg-surface);
+    border-radius: 999px;
+    color: var(--text-muted);
+  }
+
+  /* ── PLAN OGÓLNY ALERT ── */
+  .alert-box {
+    background: var(--green-light);
+    border: 1px solid var(--green-mid);
+    border-left: 3px solid var(--green);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 36px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .alert-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .alert-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--green-dark);
+    margin-bottom: 4px;
+  }
+
+  .alert-text {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ── BLOG ── */
+  .blog-list { display: flex; flex-direction: column; }
+
+  .blog-item {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 20px;
+    align-items: start;
+    transition: background 0.1s;
+    cursor: pointer;
+  }
+
+  .blog-item:first-child { padding-top: 0; }
+  .blog-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .blog-date {
+    font-size: 11px;
+    color: var(--text-muted);
+    padding-top: 3px;
+    line-height: 1.4;
+  }
+
+  .blog-cat {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 5px;
+  }
+
+  .blog-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+
+  .blog-excerpt {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .new-pill {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 500;
+    padding: 2px 6px;
+    background: var(--green);
+    color: #fff;
+    border-radius: 999px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .about-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--green-light);
+    border: 2px solid var(--green-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--green);
+    flex-shrink: 0;
+  }
+
+  .about-name {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .about-role {
+    font-size: 12px;
+    color: var(--green);
+    font-weight: 500;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .about-bio {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 16px;
+    max-width: 560px;
+  }
+
+  .creds {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .cred {
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid var(--border-mid);
+    border-radius: 999px;
+    color: var(--text-mid);
+    background: var(--bg-card);
+  }
+
+  /* ── CONTACT ── */
+  .contact-card {
+    background: var(--green-light);
+    border: 1px solid var(--green-mid);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .contact-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+
+  .contact-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .contact-detail {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  .contact-detail a {
+    color: var(--green);
+    font-weight: 500;
+  }
+
+  .contact-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .btn-contact {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 11px 22px;
+    background: var(--green);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-contact:hover { background: var(--green-dark); }
+
+  .btn-contact-out {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    padding: 11px 22px;
+    background: transparent;
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-contact-out:hover { background: var(--green-mid); }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    background: var(--bg-surface);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-top: 16px;
+  }
+
+  .disclaimer-title {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  .disclaimer p {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-left { font-size: 12px; color: var(--text-muted); }
+  .footer-logo { font-family: var(--serif); color: var(--text); }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: color 0.15s;
+  }
+
+  .footer-links a:hover { color: var(--green); }
+
+  /* ── CONTACT FORM (simple) ── */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-group label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-mid);
+    letter-spacing: 0.02em;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text);
+    background: var(--bg-card);
+    border: 1px solid var(--border-mid);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    border-color: var(--green);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    margin-top: 16px;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 13px 28px;
+    background: var(--green);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  .form-submit:hover { background: var(--green-dark); }
+
+  .form-note {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+
+    .hero { padding: 48px 0 40px; }
+    .hero h1 { font-size: 28px; }
+    .hero-sub { font-size: 15px; }
+
+    .trust-bar { grid-template-columns: repeat(2, 1fr); }
+    .trust-item:nth-child(2) { border-right: none; }
+    .trust-item:nth-child(3) { border-top: 1px solid var(--border); border-right: 1px solid var(--border); }
+    .trust-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+
+    section { padding: 44px 0; }
+
+    .offer-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-avatar { margin: 0 auto 4px; }
+
+    .contact-card { flex-direction: column; padding: 20px; }
+    .contact-actions { width: 100%; }
+    .contact-actions a { flex: 1; text-align: center; }
+
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+
+    .blog-item { grid-template-columns: 60px 1fr; gap: 12px; }
+
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    .hero { padding: 36px 0 32px; }
+    .hero h1 { font-size: 24px; }
+    .trust-bar { grid-template-columns: repeat(2, 1fr); }
+    .trust-item { padding: 14px 12px; }
+    .trust-num { font-size: 17px; }
+    .trust-label { font-size: 10px; }
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero > * {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .hero > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero > *:nth-child(2) { animation-delay: 0.12s; }
+  .hero > *:nth-child(3) { animation-delay: 0.18s; }
+  .hero > *:nth-child(4) { animation-delay: 0.24s; }
+  .hero > *:nth-child(5) { animation-delay: 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Dacjan <span>Skuza</span></a>
+    <ul class="nav-links">
+      <li><a href="#oferta">Oferta</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#aktualnosci">Aktualności</a></li>
+      <li><a href="#o-mnie">O mnie</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Wyślij zapytanie</button>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#oferta" onclick="toggleMenu()">Oferta</a>
+    <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+    <a href="#aktualnosci" onclick="toggleMenu()">Aktualności</a>
+    <a href="#o-mnie" onclick="toggleMenu()">O mnie</a>
+    <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+    <a href="#kontakt" class="mob-cta" onclick="toggleMenu()">Wyślij zapytanie</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="border-bottom:1px solid var(--border)">
+  <div class="container">
+    <p class="hero-eyebrow">Analiza due diligence gruntów i nieruchomości</p>
+    <h1>Kupujesz grunt lub nieruchomość?<br><em>Sprawdź zanim stracisz.</em></h1>
+    <p class="hero-sub">Profesjonalna analiza katastralna, planistyczna i środowiskowa — zanim podpiszesz akt notarialny. Oparta na danych publicznych, QGIS i wiedzy inżynierskiej.</p>
+    <div class="hero-tags">
+      <span class="tag">Analiza KW i EGiB</span>
+      <span class="tag">MPZP / Plan ogólny</span>
+      <span class="tag">Mapy ryzyka QGIS</span>
+      <span class="tag">Powódź i osuwiska</span>
+      <span class="tag">Due diligence inwestycyjne</span>
+      <span class="tag accent">Plan ogólny 2025 <span class="tag-new">Nowe</span></span>
+    </div>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('oferta').scrollIntoView({behavior:'smooth'})">Sprawdź ofertę</button>
+      <button class="btn-secondary" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Zobacz portfolio</button>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <span class="trust-num">2+</span>
+    <span class="trust-label">Zrealizowane projekty</span>
+  </div>
+  <div class="trust-item">
+    <span class="trust-num">AGH</span>
+    <span class="trust-label">Dual inż. geodezja + środowisko</span>
+  </div>
+  <div class="trust-item">
+    <span class="trust-num">QGIS</span>
+    <span class="trust-label">Analiza wielowarstwowa GIS</span>
+  </div>
+  <div class="trust-item">
+    <span class="trust-num">BD.32</span>
+    <span class="trust-label">Kataster i gosp. nieruchomościami</span>
+  </div>
+</div>
+
+<!-- OFERTA -->
+<section id="oferta">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Oferta</p>
+      <h2>Cztery poziomy analizy</h2>
+      <p>Od szybkiego screeningu po pełny raport inwestycyjny. Ceny bazowe dla jednej działki do 0,5&nbsp;ha. <a href="oferta.html" style="color:var(--green);font-weight:500">Pełny cennik z mnożnikami →</a></p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <span class="offer-badge badge-gray">Wejście</span>
+        <p class="offer-name">Screening Wstępny</p>
+        <p class="offer-tagline">Szybka ocena przed podjęciem decyzji o wejściu</p>
+        <p class="offer-price">1 600 – 2 400 zł</p>
+        <p class="offer-price-note">netto · jedna działka do 0,5 ha</p>
+        <span class="offer-time">1–2 dni robocze</span>
+        <hr class="offer-divider">
+        <ul class="offer-scope">
+          <li>Weryfikacja aktualnej KW</li>
+          <li>Porównanie EGiB z KW</li>
+          <li>MPZP / Plan ogólny / Studium</li>
+          <li>Mapy powodziowe i SOPO</li>
+          <li>Notatka z ryzykami (4–6 str. PDF)</li>
+        </ul>
+        <a class="offer-link" href="#kontakt">Zapytaj o wycenę →</a>
+      </div>
+      <div class="offer-card featured">
+        <span class="offer-badge badge-green">Najpopularniejszy</span>
+        <p class="offer-name">Analiza Standardowa</p>
+        <p class="offer-tagline">Solidna podstawa przed złożeniem oferty zakupu</p>
+        <p class="offer-price">4 200 – 6 400 zł</p>
+        <p class="offer-price-note">netto · jedna działka do 0,5 ha</p>
+        <span class="offer-time">3–5 dni roboczych</span>
+        <hr class="offer-divider">
+        <ul class="offer-scope">
+          <li>Wszystko z pakietu Screening</li>
+          <li class="plus">Pełna historia wpisów KW</li>
+          <li class="plus">Analiza planistyczna + WZ</li>
+          <li class="plus">Dostęp do drogi, media</li>
+          <li class="plus">Mapa ryzyka QGIS</li>
+          <li class="plus">Rekomendacja wstępna</li>
+          <li class="plus">Raport PDF (10–15 stron)</li>
+        </ul>
+        <a class="offer-link" href="#kontakt">Zapytaj o wycenę →</a>
+      </div>
+      <div class="offer-card">
+        <span class="offer-badge badge-amber">Zaawansowany</span>
+        <p class="offer-name">Analiza Ryzyka Inwestycyjnego</p>
+        <p class="offer-tagline">Pełna identyfikacja ukrytych zagrożeń</p>
+        <p class="offer-price">8 500 – 13 000 zł</p>
+        <p class="offer-price-note">netto · jedna działka do 0,5 ha</p>
+        <span class="offer-time">6–10 dni roboczych</span>
+        <hr class="offer-divider">
+        <ul class="offer-scope">
+          <li>Wszystko z Analizy Standardowej</li>
+          <li class="plus">Historia zmian działki</li>
+          <li class="plus">Natura 2000, strefy konserwatorskie</li>
+          <li class="plus">Roszczenia reprywatyzacyjne</li>
+          <li class="plus">Analiza wielowarstwowa QGIS</li>
+          <li class="plus">Raport PDF (16–25 stron)</li>
+        </ul>
+        <a class="offer-link" href="#kontakt">Zapytaj o wycenę →</a>
+      </div>
+      <div class="offer-card">
+        <span class="offer-badge badge-blue">B2B / Korporacyjny</span>
+        <p class="offer-name">Raport Decyzyjny Pro</p>
+        <p class="offer-tagline">Kompletny dokument dla dewelopera i inwestora instytucjonalnego</p>
+        <p class="offer-price">wycena indywidualna</p>
+        <p class="offer-price-note">netto · od 14 000 zł · po konsultacji wstępnej</p>
+        <span class="offer-time">12–20 dni roboczych</span>
+        <hr class="offer-divider">
+        <ul class="offer-scope">
+          <li>Wszystko z Analizy Ryzyka</li>
+          <li class="plus">Raport 25–45 stron PDF</li>
+          <li class="plus">Scenariusze zagospodarowania</li>
+          <li class="plus">Ocena wykonalności inwestycji</li>
+          <li class="plus">Zestawienie decyzji adm.</li>
+        </ul>
+        <a class="offer-link" href="#kontakt">Umów konsultację →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Portfolio</p>
+      <h2>Zrealizowane analizy</h2>
+      <p>Anonimizowane opisy rzeczywistych projektów — ryzyka które znalazłem i wartość którą dostarczyłem klientowi.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="port-card">
+        <div class="port-header">
+          <p class="port-header-label">Analiza lokalu usługowego<br>Kraków, 2025</p>
+        </div>
+        <div class="port-body">
+          <p class="port-type">Due diligence inwestycyjne</p>
+          <p class="port-title">Lokal gastronomiczny z ukrytym obciążeniem konserwatorskim</p>
+          <p class="port-desc">Analiza ujawniła aktywną hipotekę w KW, historyczną ścianę cechową klasyfikowaną jako element zabytkowy oraz niezgodność użytkowania z decyzją WZ. Klient uniknął zakupu z potencjalną blokadą remontu i obciążeniem hipotecznym.</p>
+          <div class="port-tags">
+            <span class="port-tag">KW / hipoteka</span>
+            <span class="port-tag">Strefa konserwatorska</span>
+            <span class="port-tag">Niezgodność WZ</span>
+          </div>
+        </div>
+      </div>
+      <div class="port-card">
+        <div class="port-header">
+          <p class="port-header-label">Kompleks działek gruntowych<br>Okolice Krakowa, 2025</p>
+        </div>
+        <div class="port-body">
+          <p class="port-type">Analiza katastralna · inwestycja gruntowa</p>
+          <p class="port-title">Kompleks działek z błędami hipotecznymi i nieaktualną KW</p>
+          <p class="port-desc">Wielowarstwowa analiza kompleksu ujawniła rozbieżności między EGiB a KW, nieformalne użytkowanie przez osobę trzecią oraz problemy z dostępem do drogi przez służebność. Dostarczone rekomendacje negocjacyjne i mapa ryzyka QGIS.</p>
+          <div class="port-tags">
+            <span class="port-tag">Błędy KW</span>
+            <span class="port-tag">Mapa ryzyka QGIS</span>
+            <span class="port-tag">Służebność drogi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AKTUALNOŚCI -->
+<section id="aktualnosci">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Artykuły i analizy</p>
+      <h2>Wiedza dla inwestorów i profesjonalistów</h2>
+      <p>Zmiany prawa planistycznego, analizy katastralne i praktyczne wskazówki — regularnie aktualizowane.</p>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-icon">&#9888;</div>
+      <div>
+        <p class="alert-title">Ważna zmiana: Plan ogólny zastępuje MPZP w 2025 roku</p>
+        <p class="alert-text">Gminy które dotrzymały ustawowego terminu zastąpiły miejscowe plany zagospodarowania przestrzennego nowym dokumentem — planem ogólnym. Dla działek w gminach które nie uchwaliły planu w terminie, stare MPZP może nie obowiązywać. Sprawdzam status planistyczny w ramach każdej analizy.</p>
+      </div>
+    </div>
+
+    <div class="blog-list">
+      <div class="blog-item">
+        <span class="blog-date">Kwi<br>2026</span>
+        <div>
+          <p class="blog-cat">Prawo planistyczne <span class="new-pill">Aktualny</span></p>
+          <p class="blog-title">Plan ogólny 2025 — co zmienia się dla właścicieli działek i inwestorów?</p>
+          <p class="blog-excerpt">Nowe przepisy zastępują MPZP w gminach które dotrzymały terminu. Sprawdź jak zweryfikować status swojej działki i co zrobić gdy gmina nie uchwaliła planu w terminie.</p>
+        </div>
+      </div>
+      <div class="blog-item">
+        <span class="blog-date">Mar<br>2026</span>
+        <div>
+          <p class="blog-cat">Due diligence</p>
+          <p class="blog-title">5 rzeczy które powinieneś sprawdzić zanim kupisz działkę — i gdzie to znaleźć za darmo</p>
+          <p class="blog-excerpt">Geoportal, ISOK, SOPO, EGiB i KW przez internet — jak korzystać z publicznych danych by nie kupić kota w worku.</p>
+        </div>
+      </div>
+      <div class="blog-item">
+        <span class="blog-date">Lut<br>2026</span>
+        <div>
+          <p class="blog-cat">Analiza ryzyka</p>
+          <p class="blog-title">Strefy zagrożenia powodziowego — jak je czytać i dlaczego mają znaczenie przy zakupie gruntu</p>
+          <p class="blog-excerpt">Mapy ISOK i RZGW w praktyce — różnica między zagrożeniem a ryzykiem powodziowym i jej wpływ na wartość nieruchomości.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O MNIE -->
+<section id="o-mnie">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">O mnie</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-avatar">DS</div>
+      <div>
+        <p class="about-name">Dacjan Skuza</p>
+        <p class="about-role">Inżynier Geodezji i Kartografii · Inżynier Inżynierii Kształtowania Środowiska</p>
+        <p class="about-bio">Absolwent dwóch kierunków inżynierskich AGH w Krakowie. Doświadczenie w konsultingu zrównoważonego rozwoju (Deloitte Sustainability) oraz geodezji inżynieryjnej. Specjalizuję się w analizie katastralnej, planistycznej i środowiskowej — łącząc wiedzę techniczną z narzędziami GIS w praktycznych analizach dla inwestorów i deweloperów. Każdy raport traktuję jako realną ochronę klienta przed kosztownym błędem.</p>
+        <div class="creds">
+          <span class="cred">AGH Kraków · dual inż. 2026</span>
+          <span class="cred">Deloitte Sustainability</span>
+          <span class="cred">BD.32 · kataster</span>
+          <span class="cred">ISO 14001 / 45001 / 27001</span>
+          <span class="cred">QGIS · ArcGIS Pro</span>
+          <span class="cred">Kolektyw Krakowski</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Kontakt</p>
+      <h2>Porozmawiajmy o Twojej działce</h2>
+      <p>Opisz krótko co chcesz sprawdzić — odpiszę w ciągu 24 godzin z wstępną oceną i propozycją zakresu.</p>
+    </div>
+
+    <div class="contact-card">
+      <div>
+        <p class="contact-eyebrow">Dacjan Skuza</p>
+        <p class="contact-name">Dacjan Skuza</p>
+        <p class="contact-detail">
+          <a href="mailto:dacjanskuza@gmail.com">dacjanskuza@gmail.com</a><br>
+          <a href="tel:+48667938379">+48 667 938 379</a><br>
+          Kraków, Polska
+        </p>
+      </div>
+      <div class="contact-actions">
+        <a href="mailto:dacjanskuza@gmail.com" class="btn-contact">Wyślij e-mail</a>
+        <a href="https://linkedin.com/in/dacjanskuza" target="_blank" class="btn-contact-out">LinkedIn</a>
+      </div>
+    </div>
+
+    <form class="form-grid" action="https://formspree.io/f/TWOJ_KOD" method="POST">
+      <div class="form-group">
+        <label for="imie">Imię i nazwisko</label>
+        <input type="text" id="imie" name="imie" placeholder="Jan Kowalski" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Adres e-mail</label>
+        <input type="email" id="email" name="email" placeholder="jan@firma.pl" required>
+      </div>
+      <div class="form-group">
+        <label for="telefon">Telefon (opcjonalnie)</label>
+        <input type="tel" id="telefon" name="telefon" placeholder="+48 600 000 000">
+      </div>
+      <div class="form-group">
+        <label for="pakiet">Interesujący pakiet</label>
+        <select id="pakiet" name="pakiet">
+          <option value="">— wybierz —</option>
+          <option>Screening Wstępny (1 600–2 400 zł)</option>
+          <option>Analiza Standardowa (4 200–6 400 zł)</option>
+          <option>Analiza Ryzyka Inwestycyjnego (8 500–13 000 zł)</option>
+          <option>Raport Decyzyjny Pro (wycena ind.)</option>
+          <option>Nie wiem jeszcze — potrzebuję porady</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label for="wiadomosc">Krótki opis działki lub pytanie</label>
+        <textarea id="wiadomosc" name="wiadomosc" placeholder="Np. działka 0,3 ha pod Krakowem, chcę kupić pod zabudowę. Numer KW: PO1K/00123456/7. Interesuje mnie sprawdzenie MPZP i KW..."></textarea>
+      </div>
+      <div class="form-group full" style="flex-direction:row;align-items:center;gap:10px">
+        <input type="checkbox" id="rodo" name="rodo" required style="width:auto;flex-shrink:0">
+        <label for="rodo" style="font-size:12px;font-weight:300;color:var(--text-muted);cursor:pointer">Wyrażam zgodę na przetwarzanie danych osobowych w celu obsługi zapytania zgodnie z <a href="polityka-prywatnosci.html" style="color:var(--green)">polityką prywatności</a>.</label>
+      </div>
+      <div class="form-group full">
+        <button type="submit" class="form-submit">Wyślij zapytanie</button>
+        <p class="form-note">Odpowiem w ciągu 24 godzin. Dane są przetwarzane wyłącznie w celu odpowiedzi na zapytanie i nie są udostępniane osobom trzecim.</p>
+      </div>
+    </form>
+
+    <div class="disclaimer">
+      <p class="disclaimer-title">Informacja o charakterze usług</p>
+      <p>Wszystkie analizy i raporty mają charakter wyłącznie informacyjny i są opracowywane na podstawie publicznie dostępnych danych. Nie stanowią porady prawnej, wyceny nieruchomości ani operatu geodezyjnego w rozumieniu ustawy Prawo geodezyjne i kartograficzne. Nie zastępują konsultacji z rzeczoznawcą majątkowym, notariuszem ani radcą prawnym. Autor nie ponosi odpowiedzialności za decyzje inwestycyjne podjęte na podstawie sporządzonych raportów.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">Dacjan Skuza</span> &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp; Kraków
+    </div>
+    <ul class="footer-links">
+      <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
+      <li><a href="rodo.html">RODO</a></li>
+      <li><a href="oferta.html">Pełna oferta</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('open');
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
