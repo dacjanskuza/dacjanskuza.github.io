@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pełna oferta i cennik analizy due diligence gruntów i nieruchomości. Dacjan Skuza — inżynier geodezji, Kraków.">
+<title>Pełna oferta i cennik — Dacjan Skuza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a5c3a;
+    --green-light: #e8f5ee;
+    --green-mid: #c5e3d3;
+    --green-dark: #0f3d26;
+    --text: #1a1a18;
+    --text-mid: #4a4a46;
+    --text-muted: #888880;
+    --border: rgba(26,26,24,0.1);
+    --border-mid: rgba(26,26,24,0.18);
+    --bg: #fafaf8;
+    --bg-card: #ffffff;
+    --bg-surface: #f4f4f0;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,250,248,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px;
+    height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .nav-logo { font-family: var(--serif); font-size: 18px; color: var(--text); }
+  .nav-logo span { color: var(--green); }
+  .nav-back {
+    font-size: 13px; color: var(--text-mid); display: flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border: 1px solid var(--border-mid); border-radius: var(--radius-sm);
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .nav-back:hover { border-color: var(--green); color: var(--green); }
+  .nav-cta {
+    font-family: var(--sans); font-size: 13px; font-weight: 500;
+    padding: 8px 18px; background: var(--green); color: #fff;
+    border: none; border-radius: var(--radius-sm); cursor: pointer; transition: background 0.15s;
+  }
+  .nav-cta:hover { background: var(--green-dark); }
+
+  .hamburger { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 6px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; }
+  .mobile-menu { display: none; flex-direction: column; background: var(--bg-card); border-bottom: 1px solid var(--border); padding: 12px 24px 20px; gap: 2px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 15px; color: var(--text-mid); padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu .mob-cta { margin-top: 8px; display: inline-block; font-size: 14px; font-weight: 500; padding: 12px 20px; background: var(--green); color: #fff; border-radius: var(--radius-sm); text-align: center; }
+
+  .page-hero { padding: 56px 0 48px; border-bottom: 1px solid var(--border); }
+  .page-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .page-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--green); }
+  .page-hero h1 { font-family: var(--serif); font-size: clamp(26px, 4vw, 40px); font-weight: 400; line-height: 1.2; margin-bottom: 14px; }
+  .page-hero p { font-size: 15px; font-weight: 300; color: var(--text-mid); max-width: 540px; line-height: 1.7; }
+
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+  .section-title { font-family: var(--serif); font-size: clamp(20px, 3vw, 28px); font-weight: 400; color: var(--text); margin-bottom: 8px; line-height: 1.2; }
+  .section-sub { font-size: 14px; font-weight: 300; color: var(--text-mid); max-width: 540px; line-height: 1.7; margin-bottom: 28px; }
+
+  /* PAKIETY */
+  .pkg-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .pkg-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+  }
+  .pkg-card.featured { border-color: var(--green); border-width: 1.5px; }
+
+  .pkg-header {
+    padding: 20px 24px; border-bottom: 1px solid var(--border);
+    display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: start;
+  }
+
+  .pkg-badge {
+    display: inline-block; font-size: 10px; font-weight: 500;
+    padding: 3px 9px; border-radius: 999px; margin-bottom: 8px; letter-spacing: 0.04em;
+  }
+  .badge-gray { background: var(--bg-surface); color: var(--text-muted); }
+  .badge-green { background: var(--green-light); color: var(--green); }
+  .badge-amber { background: #faeeda; color: #633806; }
+  .badge-blue { background: #e6f1fb; color: #0c447c; }
+
+  .pkg-name { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--text); margin-bottom: 4px; }
+  .pkg-tagline { font-size: 13px; font-weight: 300; color: var(--text-mid); }
+
+  .pkg-price-block { text-align: right; flex-shrink: 0; }
+  .pkg-price { font-family: var(--serif); font-size: 22px; color: var(--text); }
+  .pkg-price-note { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .pkg-time { display: inline-block; font-size: 11px; color: var(--text-mid); background: var(--bg-surface); padding: 3px 9px; border-radius: 999px; margin-top: 8px; }
+
+  .pkg-body { padding: 20px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .pkg-col-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 12px; }
+
+  .scope-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .scope-list li { font-size: 13px; color: var(--text-mid); display: flex; gap: 8px; line-height: 1.5; font-weight: 300; }
+  .scope-list li::before { content: "—"; color: var(--text-muted); flex-shrink: 0; }
+  .scope-list li.plus::before { content: "+"; color: var(--green); flex-shrink: 0; font-weight: 500; }
+
+  .deliverables { display: flex; flex-wrap: wrap; gap: 6px; }
+  .del-tag { font-size: 11px; padding: 4px 10px; background: var(--green-light); color: var(--green); border-radius: 999px; font-weight: 500; }
+
+  .pkg-footer { padding: 14px 24px; background: var(--bg-surface); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .pkg-footer-note { font-size: 12px; color: var(--text-muted); font-weight: 300; }
+  .pkg-cta { font-family: var(--sans); font-size: 12px; font-weight: 500; padding: 8px 18px; background: var(--green); color: #fff; border: none; border-radius: var(--radius-sm); cursor: pointer; text-decoration: none; transition: background 0.15s; }
+  .pkg-cta:hover { background: var(--green-dark); }
+  .pkg-cta.outline { background: transparent; color: var(--green); border: 1px solid var(--green); }
+  .pkg-cta.outline:hover { background: var(--green-light); }
+
+  /* MNOŻNIKI */
+  .mult-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  .mult-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; }
+  .mult-card-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 16px; }
+
+  .mult-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .mult-row:last-child { border-bottom: none; }
+  .mult-label { font-size: 13px; color: var(--text-mid); font-weight: 300; }
+  .mult-val { font-size: 13px; font-weight: 500; color: var(--text); }
+  .mult-val.accent { color: var(--green); }
+  .mult-val.warn { color: #854f0b; }
+
+  /* USŁUGI DODATKOWE */
+  .addon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+  .addon-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+  .addon-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .addon-desc { font-size: 12px; font-weight: 300; color: var(--text-mid); line-height: 1.6; margin-bottom: 12px; }
+  .addon-price { font-family: var(--serif); font-size: 16px; color: var(--text); }
+
+  /* WARUNKI */
+  .terms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+  .term-card { background: var(--bg-surface); border-radius: var(--radius); padding: 16px 20px; }
+  .term-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 8px; }
+  .term-val { font-size: 13px; font-weight: 300; color: var(--text-mid); line-height: 1.6; }
+
+  /* WYŁĄCZENIA */
+  .exclusion-box {
+    background: #fff8f8; border: 1px solid #f0c0c0;
+    border-left: 3px solid #c0392b;
+    border-radius: var(--radius); padding: 20px 24px;
+  }
+  .exclusion-title { font-size: 13px; font-weight: 500; color: #7a1f1f; margin-bottom: 12px; }
+  .exclusion-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .exclusion-list li { font-size: 13px; color: #7a1f1f; font-weight: 300; display: flex; gap: 10px; line-height: 1.5; }
+  .exclusion-list li::before { content: "×"; flex-shrink: 0; font-weight: 500; }
+
+  /* KALKULATOR */
+  .calc-card { background: var(--green-light); border: 1px solid var(--green-mid); border-radius: var(--radius); padding: 28px 32px; }
+  .calc-title { font-family: var(--serif); font-size: 20px; color: var(--text); margin-bottom: 6px; }
+  .calc-sub { font-size: 13px; font-weight: 300; color: var(--text-mid); margin-bottom: 24px; }
+  .calc-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .calc-group { display: flex; flex-direction: column; gap: 6px; }
+  .calc-group label { font-size: 12px; font-weight: 500; color: var(--text-mid); }
+  .calc-group select {
+    font-family: var(--sans); font-size: 13px; color: var(--text);
+    background: var(--bg-card); border: 1px solid var(--border-mid);
+    border-radius: var(--radius-sm); padding: 9px 12px;
+    outline: none; cursor: pointer; appearance: none;
+    transition: border-color 0.15s;
+  }
+  .calc-group select:focus { border-color: var(--green); }
+  .calc-result { background: var(--bg-card); border: 1px solid var(--green-mid); border-radius: var(--radius-sm); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .calc-result-label { font-size: 13px; color: var(--text-mid); }
+  .calc-result-price { font-family: var(--serif); font-size: 26px; color: var(--green); }
+  .calc-result-note { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+  /* FOOTER */
+  footer { padding: 28px 0; border-top: 1px solid var(--border); }
+  .footer-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-left { font-size: 12px; color: var(--text-muted); }
+  .footer-logo { font-family: var(--serif); color: var(--text); }
+  .footer-links { display: flex; gap: 20px; list-style: none; }
+  .footer-links a { font-size: 12px; color: var(--text-muted); transition: color 0.15s; }
+  .footer-links a:hover { color: var(--green); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-back span { display: none; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+
+    .pkg-header { grid-template-columns: 1fr; }
+    .pkg-price-block { text-align: left; }
+    .pkg-body { grid-template-columns: 1fr; gap: 20px; }
+    .mult-grid { grid-template-columns: 1fr; }
+    .addon-grid { grid-template-columns: 1fr; }
+    .terms-grid { grid-template-columns: 1fr 1fr; }
+    .calc-row { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    .terms-grid { grid-template-columns: 1fr; }
+    .pkg-footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Dacjan <span>Skuza</span></a>
+    <a href="index.html" class="nav-back">← <span>Strona główna</span></a>
+    <a href="index.html#kontakt" class="nav-cta">Wyślij zapytanie</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Strona główna</a>
+    <a href="index.html#oferta">Oferta</a>
+    <a href="index.html#portfolio">Portfolio</a>
+    <a href="index.html#kontakt">Kontakt</a>
+    <a href="index.html#kontakt" class="mob-cta">Wyślij zapytanie</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="page-eyebrow">Pełna oferta i cennik</p>
+    <h1>Szczegółowy zakres i ceny<br>każdego pakietu</h1>
+    <p>Ceny bazowe dotyczą jednej działki do 0,5 ha w trybie standardowym. Poniżej znajdziesz pełny zakres, mnożniki dla większych nieruchomości, usługi dodatkowe i warunki współpracy.</p>
+  </div>
+</div>
+
+<!-- PAKIETY -->
+<section id="pakiety">
+  <div class="container">
+    <p class="section-eyebrow">Pakiety główne</p>
+    <h2 class="section-title">Cztery poziomy analizy</h2>
+    <p class="section-sub">Każdy wyższy pakiet zawiera wszystko z pakietu poprzedniego — nie płacisz dwa razy za tę samą pracę.</p>
+
+    <div class="pkg-list">
+
+      <!-- SCREENING -->
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div>
+            <span class="pkg-badge badge-gray">Wejście</span>
+            <p class="pkg-name">Screening Wstępny</p>
+            <p class="pkg-tagline">Szybka ocena przed podjęciem decyzji o wejściu w transakcję</p>
+          </div>
+          <div class="pkg-price-block">
+            <p class="pkg-price">1 600 – 2 400 zł</p>
+            <p class="pkg-price-note">netto · jedna działka do 0,5 ha</p>
+            <span class="pkg-time">1–2 dni robocze</span>
+          </div>
+        </div>
+        <div class="pkg-body">
+          <div>
+            <p class="pkg-col-title">Zakres analizy</p>
+            <ul class="scope-list">
+              <li>Weryfikacja aktualnej treści księgi wieczystej (KW)</li>
+              <li>Porównanie danych ewidencyjnych EGiB z KW — zgodność powierzchni i granic</li>
+              <li>Sprawdzenie przeznaczenia w miejscowym planie zagospodarowania przestrzennego (MPZP) lub planie ogólnym gminy</li>
+              <li>Weryfikacja w Studium uwarunkowań i kierunków zagospodarowania</li>
+              <li>Identyfikacja zagrożeń powodziowych (mapy ISOK — zagrożenie i ryzyko powodziowe)</li>
+              <li>Identyfikacja ruchów masowych i osuwisk (SOPO — PIG-PIB)</li>
+              <li>Notatka wynikowa z listą zidentyfikowanych ryzyk (4–6 stron PDF)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="pkg-col-title">Klient otrzymuje</p>
+            <div class="deliverables" style="margin-bottom:20px">
+              <span class="del-tag">Notatka PDF 4–6 stron</span>
+              <span class="del-tag">Lista ryzyk</span>
+            </div>
+            <p class="pkg-col-title">Najlepszy dla</p>
+            <ul class="scope-list">
+              <li>Osób prywatnych przy wstępnej selekcji kilku działek</li>
+              <li>Pośredników kwalifikujących oferty dla klientów</li>
+              <li>Każdego kto chce szybko wiedzieć czy warto iść dalej</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pkg-footer">
+          <p class="pkg-footer-note">Cena domyślna przy braku szczegółów: 2 000 zł netto</p>
+          <a href="index.html#kontakt" class="pkg-cta">Zapytaj o wycenę</a>
+        </div>
+      </div>
+
+      <!-- STANDARDOWA -->
+      <div class="pkg-card featured">
+        <div class="pkg-header">
+          <div>
+            <span class="pkg-badge badge-green">Najpopularniejszy</span>
+            <p class="pkg-name">Analiza Standardowa</p>
+            <p class="pkg-tagline">Solidna podstawa przed złożeniem oferty zakupu</p>
+          </div>
+          <div class="pkg-price-block">
+            <p class="pkg-price">4 200 – 6 400 zł</p>
+            <p class="pkg-price-note">netto · jedna działka do 0,5 ha</p>
+            <span class="pkg-time">3–5 dni roboczych</span>
+          </div>
+        </div>
+        <div class="pkg-body">
+          <div>
+            <p class="pkg-col-title">Wszystko z Screeningu, plus</p>
+            <ul class="scope-list">
+              <li class="plus">Pełna historia wpisów w księdze wieczystej</li>
+              <li class="plus">Analiza zgodności granic z dokumentacją geodezyjną</li>
+              <li class="plus">Szczegółowa analiza planistyczna: MPZP + Studium + aktywne decyzje WZ w otoczeniu</li>
+              <li class="plus">Sprawdzenie dostępności mediów i uzbrojenia terenu</li>
+              <li class="plus">Analiza dostępu do drogi publicznej (bezpośredni lub przez służebność)</li>
+              <li class="plus">Podstawowa mapa ryzyka opracowana w QGIS</li>
+              <li class="plus">Rekomendacja wstępna: kontynuować / negocjować / zrezygnować</li>
+              <li class="plus">Raport wynikowy (10–15 stron PDF)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="pkg-col-title">Klient otrzymuje</p>
+            <div class="deliverables" style="margin-bottom:20px">
+              <span class="del-tag">Raport PDF 10–15 stron</span>
+              <span class="del-tag">Mapa ryzyka QGIS</span>
+              <span class="del-tag">Rekomendacja wstępna</span>
+            </div>
+            <p class="pkg-col-title">Najlepszy dla</p>
+            <ul class="scope-list">
+              <li>Inwestorów indywidualnych przed złożeniem oferty</li>
+              <li>Małych deweloperów przy standardowych transakcjach</li>
+              <li>Pośredników obsługujących klientów przy zakupie</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pkg-footer">
+          <p class="pkg-footer-note">Cena domyślna przy braku szczegółów: 5 200 zł netto</p>
+          <a href="index.html#kontakt" class="pkg-cta">Zapytaj o wycenę</a>
+        </div>
+      </div>
+
+      <!-- RYZYKO -->
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div>
+            <span class="pkg-badge badge-amber">Zaawansowany</span>
+            <p class="pkg-name">Analiza Ryzyka Inwestycyjnego</p>
+            <p class="pkg-tagline">Pełna identyfikacja wszystkich ukrytych zagrożeń</p>
+          </div>
+          <div class="pkg-price-block">
+            <p class="pkg-price">8 500 – 13 000 zł</p>
+            <p class="pkg-price-note">netto · jedna działka do 0,5 ha</p>
+            <span class="pkg-time">6–10 dni roboczych</span>
+          </div>
+        </div>
+        <div class="pkg-body">
+          <div>
+            <p class="pkg-col-title">Wszystko z Analizy Standardowej, plus</p>
+            <ul class="scope-list">
+              <li class="plus">Analiza historyczna zmian działki (ortofotomapy archiwalne, historia wpisów KW)</li>
+              <li class="plus">Wielowarstwowa analiza w QGIS: powódź, osuwiska, ochrona przyrody, strefy Natura 2000</li>
+              <li class="plus">Sprawdzenie obszarów archeologicznych i stref konserwatorskich (WKZ)</li>
+              <li class="plus">Analiza służebności, roszczeń reprywatyzacyjnych i nieformalnego użytkowania</li>
+              <li class="plus">Strefy strategiczne: infrastruktura krytyczna, ograniczenia wysokości, sieci specjalne</li>
+              <li class="plus">Zaawansowana mapa ryzyka z legendą i warstwami</li>
+              <li class="plus">Rekomendacje działań naprawczych (lista konkretnych kroków prawnych i technicznych)</li>
+              <li class="plus">Raport wynikowy (16–25 stron PDF)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="pkg-col-title">Klient otrzymuje</p>
+            <div class="deliverables" style="margin-bottom:20px">
+              <span class="del-tag">Raport PDF 16–25 stron</span>
+              <span class="del-tag">Mapa wielowarstwowa QGIS</span>
+              <span class="del-tag">Rekomendacje działań</span>
+            </div>
+            <p class="pkg-col-title">Najlepszy dla</p>
+            <ul class="scope-list">
+              <li>Inwestorów przy transakcjach powyżej 500 tys. zł</li>
+              <li>Deweloperów przy działkach z widocznymi komplikacjami</li>
+              <li>Każdego przypadku z wieloma warstwami ryzyka jednocześnie</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pkg-footer">
+          <p class="pkg-footer-note">Cena domyślna przy braku szczegółów: 10 500 zł netto</p>
+          <a href="index.html#kontakt" class="pkg-cta">Zapytaj o wycenę</a>
+        </div>
+      </div>
+
+      <!-- PRO -->
+      <div class="pkg-card">
+        <div class="pkg-header">
+          <div>
+            <span class="pkg-badge badge-blue">B2B / Korporacyjny</span>
+            <p class="pkg-name">Raport Decyzyjny Pro</p>
+            <p class="pkg-tagline">Kompletny dokument decyzyjny dla dewelopera i inwestora instytucjonalnego</p>
+          </div>
+          <div class="pkg-price-block">
+            <p class="pkg-price">wycena indywidualna</p>
+            <p class="pkg-price-note">netto · od 14 000 zł · po konsultacji wstępnej</p>
+            <span class="pkg-time">12–20 dni roboczych</span>
+          </div>
+        </div>
+        <div class="pkg-body">
+          <div>
+            <p class="pkg-col-title">Wszystko z Analizy Ryzyka, plus</p>
+            <ul class="scope-list">
+              <li class="plus">Profesjonalny raport 25–45 stron z pełną szatą graficzną (do prezentacji dla zarządu lub banku)</li>
+              <li class="plus">Scenariusze zagospodarowania terenu (2–3 warianty z parametrami)</li>
+              <li class="plus">Analiza zgodności z przepisami środowiskowymi (OOŚ, Natura 2000, prawo wodne)</li>
+              <li class="plus">Ocena wykonalności inwestycyjnej: ograniczenia prawne, harmonogram, ryzyka finansowe</li>
+              <li class="plus">Zestawienie wymaganych decyzji administracyjnych i ich kolejności</li>
+              <li class="plus">Rekomendacja inwestycyjna z uzasadnieniem</li>
+            </ul>
+          </div>
+          <div>
+            <p class="pkg-col-title">Klient otrzymuje</p>
+            <div class="deliverables" style="margin-bottom:20px">
+              <span class="del-tag">Raport PDF 25–45 stron</span>
+              <span class="del-tag">Scenariusze zagospodarowania</span>
+              <span class="del-tag">Mapy QGIS</span>
+              <span class="del-tag">Zestawienie decyzji adm.</span>
+            </div>
+            <p class="pkg-col-title">Najlepszy dla</p>
+            <ul class="scope-list">
+              <li>Funduszy inwestycyjnych i deweloperów instytucjonalnych</li>
+              <li>Firm prowadzących due diligence przed akwizycją terenu</li>
+              <li>Projektów wymagających dokumentacji do prezentacji banku lub zarządu</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pkg-footer">
+          <p class="pkg-footer-note">Wymagana konsultacja wstępna (200 zł, zaliczana na poczet zlecenia)</p>
+          <a href="index.html#kontakt" class="pkg-cta outline">Umów konsultację</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KALKULATOR -->
+<section id="kalkulator">
+  <div class="container">
+    <p class="section-eyebrow">Kalkulator orientacyjny</p>
+    <h2 class="section-title">Oszacuj koszt swojej analizy</h2>
+    <p class="section-sub">Wybierz pakiet, powierzchnię i tryb realizacji — kalkulator pokaże orientacyjną cenę. Ostateczna wycena po przesłaniu zapytania.</p>
+    <div class="calc-card">
+      <p class="calc-title">Wycena orientacyjna</p>
+      <p class="calc-sub">Ceny netto. Podstawa: jedna działka, cena środkowa z przedziału.</p>
+      <div class="calc-row">
+        <div class="calc-group">
+          <label>Pakiet</label>
+          <select id="calcPkg">
+            <option value="2000">Screening Wstępny</option>
+            <option value="5200" selected>Analiza Standardowa</option>
+            <option value="10500">Analiza Ryzyka Inwestycyjnego</option>
+            <option value="16000">Raport Decyzyjny Pro</option>
+          </select>
+        </div>
+        <div class="calc-group">
+          <label>Powierzchnia działki</label>
+          <select id="calcArea">
+            <option value="1.0">do 0,5 ha (1,0×)</option>
+            <option value="1.45">0,5 – 2 ha (1,3–1,6×)</option>
+            <option value="1.95">2 – 5 ha (1,7–2,2×)</option>
+            <option value="2.5">5 – 15 ha (2,2×+)</option>
+          </select>
+        </div>
+        <div class="calc-group">
+          <label>Tryb realizacji</label>
+          <select id="calcMode">
+            <option value="1.0">Standardowy (1,0×)</option>
+            <option value="1.4">Ekspresowy –50% czasu (1,4×)</option>
+          </select>
+        </div>
+      </div>
+      <div class="calc-result">
+        <div>
+          <p class="calc-result-label">Orientacyjna cena netto</p>
+          <p class="calc-result-note">Cena środkowa z przedziału · bez usług dodatkowych</p>
+        </div>
+        <div style="text-align:right">
+          <p class="calc-result-price" id="calcOutput">5 200 zł</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MNOŻNIKI -->
+<section id="mnozniki">
+  <div class="container">
+    <p class="section-eyebrow">Mnożniki ceny bazowej</p>
+    <h2 class="section-title">Ceny dla większych nieruchomości</h2>
+    <p class="section-sub">Cena bazowa dotyczy jednej działki do 0,5 ha. Poniższe mnożniki stosuje się do ceny środkowej z przedziału danego pakietu.</p>
+    <div class="mult-grid">
+      <div class="mult-card">
+        <p class="mult-card-title">Powierzchnia działki</p>
+        <div class="mult-row"><span class="mult-label">do 0,5 ha</span><span class="mult-val accent">1,0× — cena bazowa</span></div>
+        <div class="mult-row"><span class="mult-label">0,5 – 2 ha</span><span class="mult-val">1,3×</span></div>
+        <div class="mult-row"><span class="mult-label">2 – 5 ha</span><span class="mult-val">1,7×</span></div>
+        <div class="mult-row"><span class="mult-label">5 – 15 ha</span><span class="mult-val">2,2×</span></div>
+        <div class="mult-row"><span class="mult-label">powyżej 15 ha</span><span class="mult-val warn">wycena indywidualna</span></div>
+      </div>
+      <div class="mult-card">
+        <p class="mult-card-title">Liczba działek w kompleksie</p>
+        <div class="mult-row"><span class="mult-label">1–2 działki</span><span class="mult-val accent">1,0× — cena bazowa</span></div>
+        <div class="mult-row"><span class="mult-label">3–6 działek</span><span class="mult-val">1,25×</span></div>
+        <div class="mult-row"><span class="mult-label">7–15 działek</span><span class="mult-val">1,5×</span></div>
+        <div class="mult-row"><span class="mult-label">powyżej 15 działek</span><span class="mult-val warn">wycena indywidualna</span></div>
+      </div>
+      <div class="mult-card">
+        <p class="mult-card-title">Tryb realizacji</p>
+        <div class="mult-row"><span class="mult-label">Standardowy</span><span class="mult-val accent">1,0× — cena bazowa</span></div>
+        <div class="mult-row"><span class="mult-label">Ekspresowy (–50% czasu realizacji)</span><span class="mult-val">1,4×</span></div>
+      </div>
+      <div class="mult-card">
+        <p class="mult-card-title">Stały klient / pośrednik B2B</p>
+        <div class="mult-row"><span class="mult-label">Umowa ramowa (min. 4 zlecenia/rok)</span><span class="mult-val accent">0,85×</span></div>
+        <div class="mult-row"><span class="mult-label">Program partnerski dla pośredników</span><span class="mult-val warn">warunki indywidualne</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USŁUGI DODATKOWE -->
+<section id="dodatki">
+  <div class="container">
+    <p class="section-eyebrow">Usługi dodatkowe</p>
+    <h2 class="section-title">Rozszerz zakres swojej analizy</h2>
+    <p class="section-sub">Każdą z poniższych usług można dodać do dowolnego pakietu głównego.</p>
+    <div class="addon-grid">
+      <div class="addon-card">
+        <p class="addon-name">Konsultacja wstępna</p>
+        <p class="addon-desc">30-minutowa rozmowa telefoniczna lub video — omówienie ryzyk działki przed zleceniem analizy. Koszt zaliczany w całości na poczet zlecenia.</p>
+        <p class="addon-price">200 zł netto</p>
+      </div>
+      <div class="addon-card">
+        <p class="addon-name">Wizja lokalna</p>
+        <p class="addon-desc">Fizyczny audyt terenu w promieniu 50 km od Krakowa — zdjęcia dokumentacyjne, ocena sąsiedztwa, dostęp do drogi, uzbrojenie naziemne.</p>
+        <p class="addon-price">od 600 zł netto</p>
+      </div>
+      <div class="addon-card">
+        <p class="addon-name">Aktualizacja raportu</p>
+        <p class="addon-desc">Aktualizacja raportu wykonanego do 12 miesięcy wcześniej — zmiany KW, MPZP, nowe zagrożenia. Dotyczy tylko zmian od daty pierwotnego raportu.</p>
+        <p class="addon-price">30–50% ceny pakietu</p>
+      </div>
+      <div class="addon-card">
+        <p class="addon-name">Analiza porównawcza</p>
+        <p class="addon-desc">Porównanie 2–4 działek na jednym rynku — zestawienie ryzyk i wskazanie najlepszego wyboru inwestycyjnego.</p>
+        <p class="addon-price">od 2 800 zł netto</p>
+      </div>
+      <div class="addon-card">
+        <p class="addon-name">Eksport QGIS / GIS</p>
+        <p class="addon-desc">Dostarczenie warstw QGIS lub pliku GeoPackage do własnego systemu GIS klienta. Format: GeoPackage (.gpkg) lub Shapefile.</p>
+        <p class="addon-price">400 zł netto</p>
+      </div>
+      <div class="addon-card">
+        <p class="addon-name">Omówienie raportu</p>
+        <p class="addon-desc">60-minutowe spotkanie online po dostarczeniu raportu — szczegółowe omówienie wyników, odpowiedź na pytania klienta lub jego prawnika.</p>
+        <p class="addon-price">350 zł netto</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WARUNKI -->
+<section id="warunki">
+  <div class="container">
+    <p class="section-eyebrow">Warunki współpracy</p>
+    <h2 class="section-title">Jak wygląda współpraca</h2>
+    <p class="section-sub">Jasne zasady od pierwszego kontaktu do dostarczenia raportu.</p>
+    <div class="terms-grid" style="margin-bottom:20px">
+      <div class="term-card">
+        <p class="term-label">Zaliczka</p>
+        <p class="term-val">50% wartości zlecenia przed rozpoczęciem prac. Pozostałe 50% po dostarczeniu raportu.</p>
+      </div>
+      <div class="term-card">
+        <p class="term-label">Forma dokumentu</p>
+        <p class="term-val">Raport wynikowy w formacie PDF. Mapy w PDF + PNG. Na życzenie: GeoPackage (QGIS).</p>
+      </div>
+      <div class="term-card">
+        <p class="term-label">Umowa</p>
+        <p class="term-val">Każde zlecenie objęte pisemną umową zlecenia z określonym zakresem i terminem realizacji.</p>
+      </div>
+      <div class="term-card">
+        <p class="term-label">Czas realizacji</p>
+        <p class="term-val">Liczony od daty wpływu zaliczki i dostarczenia przez klienta numeru KW lub adresu działki.</p>
+      </div>
+      <div class="term-card">
+        <p class="term-label">Język raportu</p>
+        <p class="term-val">Język polski (standard). Język angielski dostępny na zlecenie (+15% do ceny pakietu).</p>
+      </div>
+      <div class="term-card">
+        <p class="term-label">Poufność</p>
+        <p class="term-val">Dane klienta i nieruchomości objęte klauzulą poufności. Nie są udostępniane osobom trzecim.</p>
+      </div>
+    </div>
+
+    <div class="exclusion-box">
+      <p class="exclusion-title">Czego oferta nie obejmuje — wyłączenia zakresu</p>
+      <ul class="exclusion-list">
+        <li>Wyceny wartości rynkowej nieruchomości — usługa zastrzeżona dla rzeczoznawców majątkowych z uprawnieniami</li>
+        <li>Porady prawnej ani reprezentacji klienta przed organami administracyjnymi</li>
+        <li>Rejestracji zmian w księdze wieczystej ani składania wniosków do urzędów w imieniu klienta</li>
+        <li>Badania geotechnicznego gruntu ani analiz laboratoryjnych gleby lub wód gruntowych</li>
+        <li>Działek i nieruchomości zlokalizowanych poza terytorium Polski (w standardowym zakresie)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:48px 0;border-bottom:none">
+  <div class="container">
+    <div style="background:var(--green-light);border:1px solid var(--green-mid);border-radius:var(--radius);padding:36px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+      <div>
+        <p style="font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;color:var(--green);margin-bottom:8px">Gotowy na analizę?</p>
+        <p style="font-family:var(--serif);font-size:22px;color:var(--text);margin-bottom:6px">Opisz działkę — wycenię w ciągu 24 godzin</p>
+        <p style="font-size:13px;font-weight:300;color:var(--text-mid)">Podaj numer KW lub adres, a powiem Ci który pakiet będzie odpowiedni i jaka będzie cena.</p>
+      </div>
+      <a href="index.html#kontakt" style="font-family:var(--sans);font-size:14px;font-weight:500;padding:14px 28px;background:var(--green);color:#fff;border-radius:var(--radius-sm);white-space:nowrap;transition:background 0.15s" onmouseover="this.style.background='#0f3d26'" onmouseout="this.style.background='#1a5c3a'">Wyślij zapytanie</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">Dacjan Skuza</span> &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp; Kraków
+    </div>
+    <ul class="footer-links">
+      <li><a href="polityka-prywatnosci.html">Polityka prywatności</a></li>
+      <li><a href="rodo.html">RODO</a></li>
+      <li><a href="index.html">Strona główna</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  function calcPrice() {
+    const pkg = parseFloat(document.getElementById('calcPkg').value);
+    const area = parseFloat(document.getElementById('calcArea').value);
+    const mode = parseFloat(document.getElementById('calcMode').value);
+    const result = Math.round(pkg * area * mode / 100) * 100;
+    document.getElementById('calcOutput').textContent = result.toLocaleString('pl-PL') + ' zł';
+  }
+
+  document.getElementById('calcPkg').addEventListener('change', calcPrice);
+  document.getElementById('calcArea').addEventListener('change', calcPrice);
+  document.getElementById('calcMode').addEventListener('change', calcPrice);
+</script>
+</body>
+</html>
